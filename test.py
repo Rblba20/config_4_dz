@@ -1,60 +1,120 @@
+import unittest
+import subprocess
 import json
+import os
 
 
-# Определение виртуальной машины
-class VirtualMachine:
-    def __init__(self, memory_size=1024):
-        self.memory = [0] * memory_size  # Массив памяти
-        self.registers = [0] * 32  # 32 регистра
+class TestAssemblerAndInterpreter(unittest.TestCase):
+    def setUp(self):
+        """Создаем файл input.txt для теста."""
+        self.input_file = 'input.txt'
+        self.binary_file = 'program.bin'
+        self.log_file = 'log.json'
+        self.result_file = 'result.json'
 
-    def load_vector(self, vector, start_address):
-        """Загрузить вектор в память"""
-        for i, val in enumerate(vector):
-            self.memory[start_address + i] = val
-        print(f"Вектор загружен в память: {self.memory[start_address:start_address + len(vector)]}")
+        # Содержимое input.txt
+        input_data = """\
+LOAD 17 0 23
+LOAD 17 1 12
+LOAD 17 2 2
+LOAD 17 3 56
+LOAD 17 4 89
+LOAD 17 5 90
+LOAD 17 6 15
+LOAD 17 7 8
 
-    def binary_operation_ge(self, vector_start_address, number, result_address, vector_length):
-        """Поэлементная операция >= над вектором и числом"""
-        for i in range(vector_length):
-            # Операция ">=" между элементом вектора и числом
-            if self.memory[vector_start_address + i] >= number:
-                self.memory[result_address + i] = 1
-            else:
-                self.memory[result_address + i] = 0
-        print(
-            f"Результат операции '>=' записан в новый вектор: {self.memory[result_address:result_address + vector_length]}")
+WRITE 6 0 0
+WRITE 6 1 1
+WRITE 6 2 2
+WRITE 6 3 3
+WRITE 6 4 4
+WRITE 6 5 5
+WRITE 6 6 6
+WRITE 6 7 7
 
-    def execute_program(self, vector, number, vector_length):
-        # Адреса для вектора и результата
-        vector_start_address = 0
-        result_start_address = 100  # Можно использовать любую свободную область памяти
+LOAD 17 0 14
+LOAD 17 1 14
+LOAD 17 2 14
+LOAD 17 3 14
+LOAD 17 4 14
+LOAD 17 5 14
+LOAD 17 6 14
+LOAD 17 7 14
 
-        # Загрузим вектор в память
-        self.load_vector(vector, vector_start_address)
+>= 21 0 0
+>= 21 1 1
+>= 21 2 2
+>= 21 3 3
+>= 21 4 4
+>= 21 5 5
+>= 21 6 6
+>= 21 7 7
 
-        # Выполним операцию ">=" поэлементно
-        self.binary_operation_ge(vector_start_address, number, result_start_address, vector_length)
+WRITE 6 0 0
+WRITE 6 1 1
+WRITE 6 2 2
+WRITE 6 3 3
+WRITE 6 4 4
+WRITE 6 5 5
+WRITE 6 6 6
+WRITE 6 7 7
+"""
+        with open(self.input_file, 'w') as f:
+            f.write(input_data)
+
+    def test_assembler_and_interpreter(self):
+        """Тестируем работу assembler.py и interpreter.py."""
+        # Шаг 1: Запускаем assembler.py
+        subprocess.run(
+            ['python', 'assembler.py', self.input_file, self.binary_file, self.log_file],
+            check=True
+        )
+
+        # Проверяем, что бинарный файл был создан
+        self.assertTrue(os.path.exists(self.binary_file))
+
+        # Шаг 2: Запускаем interpreter.py
+        memory_range = (0, 8)  # Диапазон памяти для проверки
+        subprocess.run(
+            ['python', 'interpreter.py', self.binary_file, self.result_file, str(memory_range[0]), str(memory_range[1])],
+            check=True
+        )
+
+        # Проверяем, что файл результата был создан
+        self.assertTrue(os.path.exists(self.result_file))
+
+        # Шаг 3: Проверяем содержимое файла результата
+        with open(self.result_file, 'r') as f:
+            result = json.load(f)
+
+        # Ожидаемый результат в памяти (после выполнения >=)
+        expected_memory = {
+            "0": 0,
+            "1": 1,
+            "2": 1,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 1
+        }
+
+        # Проверяем соответствие памяти
+        self.assertEqual(result['result'], expected_memory)
+
+        # Проверяем, что регистры также установлены корректно
+        expected_registers = {
+            "0": 0,
+            "1": 1,
+            "2": 1,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 1
+        }
+        self.assertEqual(result['registers'], expected_registers)
 
 
-# Тестовые данные
-vector = [10, 15, 8, 14, 19, 3, 14, 7]  # Входной вектор
-number = 14  # Число, с которым будем сравнивать
-vector_length = len(vector)  # Длина вектора
-
-# Запуск виртуальной машины
-vm = VirtualMachine()
-vm.execute_program(vector, number, vector_length)
-
-# Результаты выполнения программы (лог в формате JSON)
-log = {
-    "vector": vector,
-    "number": number,
-    "result_vector": vm.memory[100:100 + vector_length],
-}
-
-# Сохранение в файл логов в формате JSON
-log_filename = "vm_log.json"
-with open(log_filename, "w") as log_file:
-    json.dump(log, log_file, indent=4)
-
-print(f"Лог выполнения сохранен в {log_filename}")
+if __name__ == '__main__':
+    unittest.main()

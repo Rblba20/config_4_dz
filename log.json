@@ -1,31 +1,80 @@
 [
     {
-        "instruction": "LOAD 17 2 447",
+        "instruction": "LOAD 17 0 23",
         "binary": [
-            138,
-            191,
-            1
-        ]
-    },
-    {
-        "instruction": "READ 3 6 0",
-        "binary": [
-            30,
+            136,
+            23,
             0
         ]
     },
     {
-        "instruction": "WRITE 6 739 2",
+        "instruction": "LOAD 17 1 12",
         "binary": [
-            50,
-            227,
-            2
+            137,
+            12,
+            0
         ]
     },
     {
-        "instruction": "WRITE 6 1 2",
+        "instruction": "LOAD 17 2 2",
         "binary": [
-            50,
+            138,
+            2,
+            0
+        ]
+    },
+    {
+        "instruction": "LOAD 17 3 56",
+        "binary": [
+            139,
+            56,
+            0
+        ]
+    },
+    {
+        "instruction": "LOAD 17 4 89",
+        "binary": [
+            140,
+            89,
+            0
+        ]
+    },
+    {
+        "instruction": "LOAD 17 5 90",
+        "binary": [
+            141,
+            90,
+            0
+        ]
+    },
+    {
+        "instruction": "LOAD 17 6 15",
+        "binary": [
+            142,
+            15,
+            0
+        ]
+    },
+    {
+        "instruction": "LOAD 17 7 8",
+        "binary": [
+            143,
+            8,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 0 0",
+        "binary": [
+            48,
+            0,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 1 1",
+        "binary": [
+            49,
             1,
             0
         ]
@@ -39,58 +88,235 @@
         ]
     },
     {
-        "instruction": "WRITE 6 3 2",
+        "instruction": "WRITE 6 3 3",
         "binary": [
-            50,
+            51,
             3,
             0
         ]
     },
     {
-        "instruction": "WRITE 6 4 2",
+        "instruction": "WRITE 6 4 4",
         "binary": [
-            50,
+            52,
             4,
             0
         ]
     },
     {
-        "instruction": "WRITE 6 5 2",
+        "instruction": "WRITE 6 5 5",
         "binary": [
-            50,
+            53,
             5,
             0
         ]
     },
     {
-        "instruction": "WRITE 6 6 2",
+        "instruction": "WRITE 6 6 6",
         "binary": [
-            50,
+            54,
             6,
             0
         ]
     },
     {
-        "instruction": "READ 3 7 3",
-        "binary": [
-            31,
-            3
-        ]
-    },
-    {
-        "instruction": "WRITE 6 9 7",
+        "instruction": "WRITE 6 7 7",
         "binary": [
             55,
-            9,
+            7,
             0
         ]
     },
     {
-        "instruction": ">= 21 915 1",
+        "instruction": "LOAD 17 0 14",
+        "binary": [
+            136,
+            14,
+            0
+        ]
+    },
+    {
+        "instruction": "LOAD 17 1 14",
+        "binary": [
+            137,
+            14,
+            0
+        ]
+    },
+    {
+        "instruction": "LOAD 17 2 14",
+        "binary": [
+            138,
+            14,
+            0
+        ]
+    },
+    {
+        "instruction": "LOAD 17 3 14",
+        "binary": [
+            139,
+            14,
+            0
+        ]
+    },
+    {
+        "instruction": "LOAD 17 4 14",
+        "binary": [
+            140,
+            14,
+            0
+        ]
+    },
+    {
+        "instruction": "LOAD 17 5 14",
+        "binary": [
+            141,
+            14,
+            0
+        ]
+    },
+    {
+        "instruction": "LOAD 17 6 14",
+        "binary": [
+            142,
+            14,
+            0
+        ]
+    },
+    {
+        "instruction": "LOAD 17 7 14",
+        "binary": [
+            143,
+            14,
+            0
+        ]
+    },
+    {
+        "instruction": ">= 21 0 0",
+        "binary": [
+            168,
+            0,
+            0
+        ]
+    },
+    {
+        "instruction": ">= 21 1 1",
         "binary": [
             169,
-            147,
-            3
+            1,
+            0
+        ]
+    },
+    {
+        "instruction": ">= 21 2 2",
+        "binary": [
+            170,
+            2,
+            0
+        ]
+    },
+    {
+        "instruction": ">= 21 3 3",
+        "binary": [
+            171,
+            3,
+            0
+        ]
+    },
+    {
+        "instruction": ">= 21 4 4",
+        "binary": [
+            172,
+            4,
+            0
+        ]
+    },
+    {
+        "instruction": ">= 21 5 5",
+        "binary": [
+            173,
+            5,
+            0
+        ]
+    },
+    {
+        "instruction": ">= 21 6 6",
+        "binary": [
+            174,
+            6,
+            0
+        ]
+    },
+    {
+        "instruction": ">= 21 7 7",
+        "binary": [
+            175,
+            7,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 0 0",
+        "binary": [
+            48,
+            0,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 1 1",
+        "binary": [
+            49,
+            1,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 2 2",
+        "binary": [
+            50,
+            2,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 3 3",
+        "binary": [
+            51,
+            3,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 4 4",
+        "binary": [
+            52,
+            4,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 5 5",
+        "binary": [
+            53,
+            5,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 6 6",
+        "binary": [
+            54,
+            6,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 7 7",
+        "binary": [
+            55,
+            7,
+            0
         ]
     }
 ]

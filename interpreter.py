@@ -67,7 +67,7 @@ def execute_program(binary_file, result_file, memory_range):
             # print(registers[c])
             # print(memory[b])
             # print(int(registers[c] >= memory[b]))
-            pc += 4
+            pc += 3
         else:
             raise ValueError(f"Unknown opcode: {opcode}")
 
