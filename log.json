@@ -1,0 +1,96 @@
+[
+    {
+        "instruction": "LOAD 17 2 447",
+        "binary": [
+            138,
+            191,
+            1
+        ]
+    },
+    {
+        "instruction": "READ 3 6 0",
+        "binary": [
+            30,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 739 2",
+        "binary": [
+            50,
+            227,
+            2
+        ]
+    },
+    {
+        "instruction": "WRITE 6 1 2",
+        "binary": [
+            50,
+            1,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 2 2",
+        "binary": [
+            50,
+            2,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 3 2",
+        "binary": [
+            50,
+            3,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 4 2",
+        "binary": [
+            50,
+            4,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 5 2",
+        "binary": [
+            50,
+            5,
+            0
+        ]
+    },
+    {
+        "instruction": "WRITE 6 6 2",
+        "binary": [
+            50,
+            6,
+            0
+        ]
+    },
+    {
+        "instruction": "READ 3 7 3",
+        "binary": [
+            31,
+            3
+        ]
+    },
+    {
+        "instruction": "WRITE 6 9 7",
+        "binary": [
+            55,
+            9,
+            0
+        ]
+    },
+    {
+        "instruction": ">= 21 915 1",
+        "binary": [
+            169,
+            147,
+            3
+        ]
+    }
+]
