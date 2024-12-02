@@ -4,7 +4,7 @@ import sys
 
 
 def execute_program(binary_file, result_file, memory_range):
-    """Выполняет программу из бинарного файла."""
+    # Выполняет программу из бинарного файла.
     memory = [0] * 1024  # Пример памяти
     registers = [0] * 8  # Пример регистров
 

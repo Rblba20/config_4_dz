@@ -12,7 +12,7 @@ COMMANDS = {
 
 
 def assemble_instruction(line):
-    """Собирает инструкцию в бинарный формат."""
+    # Собирает инструкцию в бинарный формат.
     parts = line.split()
     cmd = parts[0]
     if cmd not in COMMANDS:
@@ -68,7 +68,7 @@ def assemble_instruction(line):
 
 
 def assemble(input_file, output_file, log_file):
-    """Ассемблирует программу."""
+    # Ассемблирует программу.
     with open(input_file, 'r') as f:
         lines = f.readlines()
 

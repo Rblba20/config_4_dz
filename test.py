@@ -6,7 +6,7 @@ import os
 
 class TestAssemblerAndInterpreter(unittest.TestCase):
     def setUp(self):
-        """Создаем файл input.txt для теста."""
+        # Создаем файл input.txt для теста.
         self.input_file = 'input.txt'
         self.binary_file = 'program.bin'
         self.log_file = 'log.json'
@@ -63,7 +63,7 @@ WRITE 6 7 7
             f.write(input_data)
 
     def test_assembler_and_interpreter(self):
-        """Тестируем работу assembler.py и interpreter.py."""
+        # Тестируем работу assembler.py и interpreter.py.
         # Шаг 1: Запускаем assembler.py
         subprocess.run(
             ['python', 'assembler.py', self.input_file, self.binary_file, self.log_file],
